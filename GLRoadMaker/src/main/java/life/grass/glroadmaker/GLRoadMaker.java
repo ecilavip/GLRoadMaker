@@ -27,17 +27,20 @@ public class GLRoadMaker extends JavaPlugin implements Listener {
 			World world = Bukkit.getServer().getWorld(target.getWorld().getName());
 			if(world.getBlockAt(up).getType().equals(Material.AIR)) {
 				Player player = e.getPlayer();
+				ItemStack mainHand = player.getInventory().getItemInMainHand();
 				ItemStack leftHand = player.getInventory().getItemInOffHand();
-				if(leftHand.getType().equals(Material.WHEAT)) {
+				if(leftHand.getType().equals(Material.WHEAT)&& mainHand.getType().toString().endsWith("SPADE")) {
 					if(leftHand.getAmount() == 1) {
 						leftHand.setType(Material.AIR);
 						player.getInventory().setItemInOffHand(leftHand);
 					} else {
 					   leftHand.setAmount(leftHand.getAmount() - 1); 
 					}
+					mainHand.setDurability((short) (mainHand.getDurability() + 1));
+					player.getInventory().setItemInMainHand(mainHand);
+					target.setType(Material.GRASS_PATH);
+					world.playSound(target.getLocation(), Sound.ITEM_HOE_TILL, 1, 1);
 				}
-				target.setType(Material.GRASS_PATH);
-				world.playSound(target.getLocation(), Sound.ITEM_HOE_TILL, 1, 1);
 			}
 		}
 	}

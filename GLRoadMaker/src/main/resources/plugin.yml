@@ -1,0 +1,6 @@
+name: GLRoadMaker
+version: 1.0.0
+discription: GLRoadMaker
+author: ecilavip
+
+main: life.grass.glroadmaker.GLRoadMaker

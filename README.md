@@ -1,2 +1,6 @@
 # GLRoadMaker
-Spigot Plugin, You Can Create Path With Wheat...
+「草の道」を土ブロックからでも生成できるようにします
+
+## 使い方
+1. 左手に小麦を持つ
+2. シャベルをもち、土ブロックを右クリックする
